@@ -1,0 +1,30 @@
+import random
+gameon=True
+print('''press R for rock
+P for paper 
+S for scissors''')
+print("E for exit")
+dic={"p": 3,"s": 1, "r": 2}
+dc = {2: 'rock',    3: 'paper',    1: 'scissors'}
+while gameon:
+    playerr= input("> ")
+    try:
+        player=dic[playerr]
+        list=[2, 3, 1]
+        if player in list:
+            c=random.choice(list)
+            print(f"Computer chose {dc[c]}" )
+            if player==c:
+                print('draw')
+            elif player==1 and c==3:
+                print("You win!")
+            elif player>c:
+                print("You win")
+            else:
+                print("You lose")
+    except:
+        if playerr == 'e' or playerr== 'E':
+            gameon = False
+            break
+        else:
+            print("Invalid Choice")
